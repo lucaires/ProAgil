@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "ProAgil.API": {
+      "commandName": "Executable"
+    }
+  }
+}

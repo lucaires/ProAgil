@@ -1,0 +1,61 @@
+<div class="row g-3">
+  <div class="col-auto">
+    <!-- <input
+      type="text"
+      class="form-control"
+      placeholder="Buscar"
+      [(ngModel)]="filtroLista"
+    /> -->
+  </div>
+  <div class="col-auto">
+    <!-- <button type="submit" (click)="filtrarEventos(filtroLista)" class="btn btn-primary mb-3">Buscar</button> -->
+  </div>
+</div>
+<!-- <h3>Filtro: {{ filtroLista }}</h3> -->
+<table class="table table-striped">
+  <thead class="table-primary">
+    <tr>
+      <th class="text-center">
+        <button class="btn btn-outline-primary" (click)="mostrar()">
+          Mostrar Imagem
+        </button>
+      </th>
+      <th>#</th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Qtd Pessoas</th>
+      <th>Lote</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let e of eventos">
+      <td>
+        <img
+          *ngIf="aparecer"
+          src=""
+          [style.width.px]="imagemAltura"
+          [style.margin.px]="imagemMargem"
+        />
+      </td>
+      <td>{{ e.eventoId }}</td>
+      <td>{{ e.tema }}</td>
+      <td>{{ e.local }}</td>
+      <td>{{ e.dataEvento }}</td>
+      <td>{{ e.qtdPessoas }}</td>
+      <td>{{ e.lote | uppercase }}</td>
+      <td>
+        <button class="btn btn-success"></button>
+        <button class="btn btn-danger"></button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!eventos.length">
+    <tr>
+      <td colspan="7" class="text-center">
+        <h4>Nenhum evento encontrado</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>
